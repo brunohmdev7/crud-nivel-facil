@@ -4,6 +4,7 @@ import main.java.model.Tarefa;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class TarefaRepository {
     private List<Tarefa> tarefas =  new ArrayList<Tarefa>();
@@ -32,6 +33,23 @@ public class TarefaRepository {
             System.out.println(tarefas.get(i).getDescricao());
             System.out.println(tarefas.get(i).isConcluida());
             System.out.println("========================\n");
+        }
+    }
+
+    public void atualizarDescricao(int posicao, String novaDescricao) {
+        try {
+            for (int i = 0 ;  i  < tarefas.size() ; i++) {
+                if (posicao > (tarefas.size() - 1) || posicao < 0) {
+                    System.out.println("❌ Erro ao encontrar tarefa!");
+                }
+
+                if (tarefas.get(posicao) == tarefas.get(i)) {
+                    tarefas.get(posicao).setDescricao(novaDescricao);
+                    System.out.println("✅ Descrição atualizada com sucesso!");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("❌ Erro ao atualizar descricao!");
         }
     }
 }

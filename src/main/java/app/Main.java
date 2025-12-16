@@ -10,9 +10,8 @@ public class Main {
         tarefaRepository.criarTarefa("Estudar PHP");
         tarefaRepository.criarTarefa("Estudar C++");
         tarefaRepository.criarTarefa("Estudar Cobol");
-        tarefaRepository.criarTarefa("Estudar Ruby");
-        tarefaRepository.criarTarefa("Estudar Python");
 
+        tarefaRepository.atualizarDescricao(3, "Estudar TypeScript");
         tarefaRepository.listarTarefas();
 
     }
