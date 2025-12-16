@@ -13,7 +13,7 @@ public class TarefaRepository {
         return tarefas;
     }
 
-    public void buscaPorPosicao(int posicao) {
+    public void buscaPorPosicaoExistente (int posicao) {
         for (int i = 0; i < tarefas.size(); i++) {
             if (posicao > (tarefas.size() - 1) || posicao < 0) {
                 System.out.println("❌ Erro ao encontrar tarefa!");
@@ -46,15 +46,25 @@ public class TarefaRepository {
 
     public void atualizarDescricao(int posicao, String novaDescricao) {
         try {
-            this.buscaPorPosicao(posicao);
+            this.buscaPorPosicaoExistente(posicao);
+            for (int i = 0 ; i  < tarefas.size() ; i++) {
                 if (tarefas.get(posicao) == tarefas.get(i)) {
                     tarefas.get(posicao).setDescricao(novaDescricao);
                     System.out.println("✅ Descrição atualizada com sucesso!");
                 }
+            }
         } catch (Exception e) {
             System.out.println("❌ Erro ao atualizar descricao!");
         }
     }
 
-    public void marcarConcluida(int posicao) {}
+    public void marcarConcluida(int posicao) {
+        this.buscaPorPosicaoExistente(posicao);
+        for (int i = 0 ; i  < tarefas.size() ; i++) {
+            if (tarefas.get(posicao) == tarefas.get(i)) {
+                tarefas.get(posicao).setConcluida(true);
+                System.out.println("✅ Tarefa concluída com sucesso!");
+            }
+        }
+    }
 }
