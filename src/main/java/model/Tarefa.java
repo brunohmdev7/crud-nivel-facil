@@ -21,6 +21,10 @@ public class Tarefa {
         this.descricao = descricao;
     }
 
+    public boolean getConcluida() {
+        return concluida;
+    }
+
     public String isConcluida() {
         if (this.concluida == true) {
             return "Sim";
