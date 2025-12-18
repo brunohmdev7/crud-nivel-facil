@@ -4,6 +4,7 @@ import main.java.model.Tarefa;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.UUID;
 
 public class TarefaRepository {
@@ -128,6 +129,6 @@ public class TarefaRepository {
         System.out.println("Digite 3 para atualizar a descrição de uma tarefa");
         System.out.println("Digite 4 para concluir uma tarefa");
         System.out.println("Digite 5 para excluir uma tarefa");
-        System.out.println("Digite -1 para encerrar o programa");
+        System.out.println("Digite -1 para encerrar o programa\n");
     }
 }
