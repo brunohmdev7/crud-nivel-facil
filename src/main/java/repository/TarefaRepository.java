@@ -5,7 +5,6 @@ import main.java.model.Tarefa;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.UUID;
 
 public class TarefaRepository {
     private List<Tarefa> tarefas =  new ArrayList<Tarefa>();
@@ -69,57 +68,13 @@ public class TarefaRepository {
         }
     }
 
-    public void excluirTarefa(UUID id) {
-       boolean removeu = tarefas.removeIf(tarefa -> tarefa.getId().equals(id));
+    public void excluirTarefa(int posicao) {
+       boolean removeu = tarefas.removeIf(tarefa -> tarefas.get(posicao).equals(tarefa));
        if (removeu) {
            System.out.println("✅ Tarefa removida com sucesso!");
        } else {
            System.out.println("❌ Não foi possível excluir tarefa!");
        }
-    }
-
-    public void listarTarefasConcluida() {
-        System.out.println("===================================");
-        System.out.println("=== LISTA DE TAREFAS CONCLUÍDAS ===");
-        System.out.println("===================================\n");
-
-        boolean temTarefaConcluida = false;
-
-        for (int i = 0 ; i  < tarefas.size() ; i++) {
-            if (tarefas.get(i).getConcluida()) {
-                temTarefaConcluida = true;
-                System.out.println("Tarefa " + (i + 1));
-                System.out.println(tarefas.get(i).getDescricao());
-                System.out.println(tarefas.get(i).isConcluida());
-                System.out.println("========================\n");
-            }
-        }
-
-        if (!temTarefaConcluida) {
-            System.out.println("Não há nenhuma tarefa concluída no momento!\n");
-        }
-    }
-
-    public void listarTarefasNaoConcluidas() {
-        System.out.println("===================================");
-        System.out.println("=== LISTA DE TAREFAS NÃO CONCLUÍDAS ===");
-        System.out.println("===================================\n");
-
-        boolean temTarefaNaoConcluida = false;
-
-        for (int i = 0 ; i  < tarefas.size() ; i++) {
-            if (!tarefas.get(i).getConcluida()) {
-                temTarefaNaoConcluida = true;
-                System.out.println("Tarefa " + (i + 1));
-                System.out.println(tarefas.get(i).getDescricao());
-                System.out.println(tarefas.get(i).isConcluida());
-                System.out.println("========================\n");
-            }
-        }
-
-        if (!temTarefaNaoConcluida) {
-            System.out.println("Não há nenhuma tarefa não concluída no momento!\n");
-        }
     }
 
     public void exibirMenu() {

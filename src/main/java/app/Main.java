@@ -39,6 +39,13 @@ public class Main {
                     tarefaRepo.marcarConcluida(posicao);
                     teclado.nextLine();
                     break;
+                case "5":
+                    System.out.println("Digite a posição da tarefa que deseja excluir:");
+                    posicao = teclado.nextInt();
+                    posicao -= 1;
+                    tarefaRepo.excluirTarefa(posicao);
+                    teclado.nextLine();
+                    break;
                 case "-1":
                     System.out.println("Programa encerrado.");
                     break;
